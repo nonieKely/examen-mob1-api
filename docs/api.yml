@@ -64,26 +64,26 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/SignInResult"
   /auth/google:
-  post:
-    tags:
-      - Auth
-    summary: Authenticate with Google
-    operationId: googleSignIn
-    requestBody:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              idToken:
-                type: string
-    responses:
-      "200":
-        description: Successful login
+    post:
+      tags:
+        - Auth
+      summary: Authenticate with Google
+      operationId: googleSignIn
+      requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SignInResult"
+              type: object
+              properties:
+                idToken:
+                  type: string
+      responses:
+        "200":
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SignInResult"
   /account/{accountId}/label:
     get:
       tags:
