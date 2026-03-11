@@ -10,8 +10,11 @@ datasource db {
 model Account {
   id           String        @id @default(uuid())
   username     String        @unique
-  email        String        @default("")
-  password     String
+  email        String        @default("") @unique 
+  password     String?       
+  googleId     String?       @unique 
+  
+
   goals        Goal[]
   labels       Label[]
   projects     Project[]
@@ -19,7 +22,6 @@ model Account {
   wallets      Wallet[]
   roles        UserRole[]
 }
-
 model Role {
   id          String     @id @default(uuid())
   name        String     @unique
